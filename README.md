@@ -23,19 +23,19 @@ Algoritmo utilizado:
 Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort.
 
 Complejidad:
-Mejor caso: O(nlogn) (para QuickSort o MergeSort)
+>Mejor caso: O(nlogn) (para QuickSort o MergeSort)
 
-Peor caso: O(n2) (para BubbleSort o QuickSort en su forma menos eficiente)
+>Peor caso: O(n2) (para BubbleSort o QuickSort en su forma menos eficiente)
 
 2. Determinar la vuelta más rápida y penalizaciones
 Búsqueda del mínimo: Se puede recorrer la lista de tiempos para encontrar la vuelta más rápida y también se puede comprobar si hay penalizaciones.
 
 Complejidad:
-Buscar el mínimo: O(n)
+>Buscar el mínimo: O(n)
 
 3. Complejidad de ordenar los puntos de las escuderías: O(k log k), donde k = 10 (el número de escuderías).
 
-El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O( n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) o k = 10 (número de escuderías) son valores pequeños.
+>El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O( n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) o k = 10 (número de escuderías) son valores pequeños.
 
 
 ## SICT0302: Toma decisiones
