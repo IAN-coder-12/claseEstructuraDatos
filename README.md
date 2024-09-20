@@ -14,7 +14,7 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 
 
 
-##SICT0301: Evalúa los componentes
+## SICT0301: Evalúa los componentes
 
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 
