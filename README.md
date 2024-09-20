@@ -17,26 +17,12 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 ## SICT0302B: Toma decisiones 
 
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
+####Determinar la escudería ganadora
+Complejidad de sumar los puntos de las escuderías: O(n), donde n son los puntos de los de pilotos de cada escuderia.
+Complejidad de ordenar los puntos de las escuderías: O(k log k), donde k = 10 (el número de escuderías).
 
-Uso una lista doblemente encadenada para regristrar las medicinas porque quiero acceder rápidamente a la registrada más recientemente (head), 
-pero también necesito consultar cuál fue la primera que se agrego (tail), cada medicina es un objeto que contiene (...   ) 
-los elementos se pueden insertar y eliminar usando la lista como se muestra en el código en las funciones 
-agrega medicina, elimina medicina, y obten gramaje, que se encuentran en el archivo medicinas.h en las líneas 55, 80 y 124 respectivamente.
+El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O(m * n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) y k = 10 (número de escuderías) son valores pequeños.
 
-
-### Selecciona un algoritmo de ordenamiento adecuado al problema
-
-Para este problema utilice un algoritmo de tipo merge sort, para poder organizar las medicinas por orden alfabético ascendente y despues descendente
-use merge sort porque es rápido en la mayoría de los casos y porque es poco probable que me encuentre son su peor caso, ya que las lista inicial siempre está desordenada.
-Las fuciones donde se puede ver es en ordena medicinas ascendente y ordena medicina descendente en el archivo reportes.h las líneas 50 y 78.
-
-### Usa un árbol adecuado para resolver un problema
-
-Usé un BST para ordenar las medicinas por su gramaje y poder encontrar rápidamente medicinas con gramaje similar.
-Usé un BST porque mi lista incial viene desordenada, por lo que es poco probable que el BST se degenere. 
-
-Las funciones donde lo uso es en obten medicina por gramaje  y  medicinas con mismo gramaje que se encuentran en reportes.h en 
-las líneas 100 y 130
 
 ## SICT0301B: Evalúa los componentes
 
