@@ -14,60 +14,32 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 
 
 
-## SICT0302B: Toma decisiones 
+##SICT0301: Evalúa los componentes
 
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
-####Determinar la escudería ganadora
-Complejidad de sumar los puntos de las escuderías: O(n), donde n son los puntos de los de pilotos de cada escuderia.
-Complejidad de ordenar los puntos de las escuderías: O(k log k), donde k = 10 (el número de escuderías).
 
-El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O(m * n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) y k = 10 (número de escuderías) son valores pequeños.
+1. Ordenar los tiempos de los pilotos
+Algoritmo utilizado:
+Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort.
+Complejidad:
+Mejor caso: O(nlogn) (para QuickSort o MergeSort)
+Peor caso: O(n2) (para BubbleSort o QuickSort en su forma menos eficiente)
+
+2. Determinar la vuelta más rápida y penalizaciones
+Búsqueda del mínimo: Se puede recorrer la lista de tiempos para encontrar la vuelta más rápida y también se puede comprobar si hay penalizaciones.
+Complejidad:
+Buscar el mínimo: O(n)
+
+3. Complejidad de ordenar los puntos de las escuderías: O(k log k), donde k = 10 (el número de escuderías).
+El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O( n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) o k = 10 (número de escuderías) son valores pequeños.
 
 
-## SICT0301B: Evalúa los componentes
+## SICT0302: Toma decisiones
 
-### Presenta Casos de Prueba correctos y completos para todas las funciones y procedimientos del programa,
+### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
 
-los casos de pruebas para todas las funciones se encuentran pruebas.cpp donde se prueban las funciones de: 
+Para este programa utilizaremos el mergeSort ya que tiene mayor estabilidad, y es eficiente para listas grandes, ya que su rendimiento no se ve afectado por la disposición inicial de los elementos. En este caso para el problema de ordenamiento de tiempos en la Fórmula 1 garantiza que los tiempos de los pilotos se ordenen de manera eficiente y correcta.
+En el mejor de los casos, MergeSort sigue dividiendo la lista en mitades y luego las combina, independientemente de la disposición inicial de los elementos.
+Complejidad: O(nlogn)
 
-la lista doblemente ligada de medicinas
-
-el ordenamiento sobre la lista ligada de medicinas
-
-el acceso al BST por gramaje
-
-### Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes,
-
-#### lista de medicinas
-
-función de acceso por valor: O(n) por que para llegar a la medicina tengor que recorrer la listay comparar cada valor.
-
-funcion de inserción: O(1) siempre uso insert first.
-
-función de borrado: O(n/2 + b) porque para borrarla tengo que buscar la posición y uso head o tail y ya que la encuentro me toma b pasos constantes borrarla 
-
-#### ordenamiento de medicinas
-
-ordenamiento con merge sort: ...
-
-#### uso de árbol
-
-crear árbol de gramaje: ...
-
-agregar nodo a árbol gramaje: ...
-
-econtrar nodo en árbol gramaje: ...
-
-## SICT0303B: Implementa acciones científicas 
-
-### Implementa mecanismos para consultar información de las estructuras correctos y útiles dentro de un programa.
-
-El programa tiene la opción de buscar medicinas por nombre direcamente en la lista (opción 3 en el menú)
-El programa muestra resportes ordenados de medicinas (opción 4 en el menú)
-El programa permite obtener medidas de gramaje del árbol (opción 5 en el menú)
-
-### Implementa mecanismos de lectura de archivos correctos y útiles dentro de un programa. Usar de manera
-Las medicinas están registradas en el archivo medicinas.csv de donde se leen al iniciar el programa.
-
-### Implementa mecanismos de escritura de archivos correctos y útiles dentro de un programa. Usar de manera
-Las medicinas agregadas se guardan al final del archivo medicinas.csv, con la función agrega nueva medicina, para que no tengan que ser recapturadas cada que vez que se corre el programa.
+En el peor de los casos, que también se presenta cuando la lista está en el orden inverso, MergeSort sigue teniendo el mismo comportamiento. Siempre divide la lista y mezcla, sin importar cómo estén ordenados los elementos y la complejidad sigue siendo O(nlogn)
