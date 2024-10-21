@@ -1,6 +1,6 @@
-# Programa para la formula 1 que ordena los tiempos de los corredores de cada carrera de la temporada 2023, de modo que el piloto con menor tiempo es el el que obtiene el primer puesto y así sucesivamente
+# Programa para la F1 que ordena los tiempos de los pilotos de la temporada 2023.
 Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
-> Paso 1: El programa preguntara al usuario que carrera desea ver
+> Paso 1: El programa preguntará al usuario que carrera desea ver
 >
 > Paso 2: El programa seleccionara el archivo segun la carrera elegida
 >
@@ -39,11 +39,13 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 
 1. Ordenar los tiempos de los pilotos.
+>
 Algoritmo utilizado:
+>
 Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort. En este caso se decidió utlizar un quicksort() debido a que es el metodo de ordenamiento más eficiente para lo que necesitamos realizar (ordenar una lista de objetos segun su atributo tiempo).
-
+>
 Dado que el tiempo es un atributo numérico, Quicksort puede manejar listas de pilotos de tamaños significativos de manera eficiente, permitiendo un ordenamiento rápido incluso con cientos o miles de entradas.
-
+>
 Complejidad:
 > Mejor caso: O(nlogn)
 >
