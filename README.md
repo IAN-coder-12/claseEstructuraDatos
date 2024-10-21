@@ -24,7 +24,9 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 >
 >>> 9.1.2: Una vez se haya creado el nuevo objeto el programa hace uso de un arbol binario para insertarlo dentro del mismo con su funcion add()
 >
->>> 9.1.3: El programa imprime la nueva lista de pilotos con ayuda del un arbol binario en inorder para mostrar loos datos ordenados >>> NOTA: Es importante tomar en cuenta que en esta parte aun no se trabaja con la logica de los puntos asginados, por lo que los puntos no se veran actuzalizados con el nuevo piloto, pero sí se actualizaran las posiciones en orden de acuerdo al tiempo.
+>>> 9.1.3: El programa imprime la nueva lista de pilotos con ayuda del un arbol binario en inorder para mostrar loos datos ordenados
+>
+>>> NOTA: Es importante tomar en cuenta que en esta parte aun no se trabaja con la logica de los puntos asginados, por lo que los puntos no se veran actuzalizados con el nuevo piloto, pero sí se actualizaran las posiciones en orden de acuerdo al tiempo.
 >
 >> 9.2: Si el usuario no quiere agregar un nuevo piloto
 >
