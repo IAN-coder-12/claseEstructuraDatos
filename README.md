@@ -1,16 +1,21 @@
-# Programa para la formula 1 que ordena los tiempos de los corredores para determinar el piloto y escuderia ganadora de la temporada
+# Programa para la formula 1 que ordena los tiempos de los corredores de cada carrera de la temporada 2023, de modo que el piloto con menor tiempo es el el que obtiene el primer puesto y así sucesivamente
 Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
->Paso 1: Se meteran al programa los tiempos de cada piloto en deterimanda carrera para ordenarlos de acuerdo al mejor tiempo y asignar los puntos correspondientes
-> 
->Paso 2: Aunado a esto se determinara el piloto con la vuelta más rápida a quién se le asignaran puntos adicionales y se preguntara si algun piloto tuvo alguna penalización para restar puntos
-> 
->Paso 2: Se preguntará si se quieren registrar puntos de alguna otra carrera/ciudad, si no, el programa devolvera los tres mejores pilotos de esa carrera. 
-> 
->Paso 3: En caso de que si, continuara registrando los tiempos de las demas carreras, se necesitan registrar al menos tres carreras para que pueda haber campeones de escuderias
-> 
->Paso 4: Al final se sumaran todos los puntos de los pilotos y el piloto con el mejor tiempo de al menos tres carreras será el ganador de la temporada (son 20 pilotos)
-> 
->Paso 5: Para determinar la escudería ganadora, se sumaran los puntos de ambos pilotos por carrera y despues los de todas las carreras para ordenar los puntos y determinar la escuderia ganadora (son 10 escuderias)
+>Paso 1: El programa preguntara al usuario que carrera desea ver
+Paso 2: El programa seleccionara el archivo segun la carrera elegida
+Paso 3: El programa lee el archivo .csv correspondiente que tiene una lista de 20 pilotos cada uno con su nombre, escuderia, tiempo y puntos asginados. El orden que se encuentra en los archivos es el orden con el cual empezó la carrera (segun la Qualy del dia anterior), o sea una lista en des-orden.
+>Paso 4: Una vez leido los archivos, se asignaran los datos del archivo a los atributos correspondientes del objeto, creando 20 objetos (20 pilotos).
+>Paso 5: El programa mostrará la parrilla de salida al usuario
+> Paso 6: Se almacenaran todos pilotos en un vector para la posterior manipulación de datos.
+>Paso 7:El programa hará uso del quickSort() para ordenar la lista de objetos segun su atributo tiempo.
+>Paso 8: El programa mostrara al usuario el marcador final con las mejores posiciones en primer lugar.
+>Paso 9: El progrma preguntara al usuario si desea agregar un piloto a la carrera
+>>9.1: Si el usuario quiere agregar un nuevo piloto
+>>>9.1.1: El programa pide los datos necesarios para crear un nuevo objeto piloto
+>>>9.1.2: Una vez se haya creado el nuevo objeto el programa hace uso de un arbol binario para insertarlo dentro del mismo con su funcion add()
+>>>9.1.3: El programa imprime la nueva lista de pilotos con ayuda del un arbol binario en inorder para mostrar loos datos ordenados
+>>9.2: Si el usuario no quiere agregar un nuevo piloto
+>>>9.2.1: El programa pregunta si se desa ver otra carrera, si sí, el programa se ejecuta desde el paso 1, si no, el programa termina.
+
 
 
 
@@ -18,31 +23,27 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 
 ### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
 
-1. Ordenar los tiempos de los pilotos
+1. Ordenar los tiempos de los pilotos.
 Algoritmo utilizado:
-Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort.
+Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort. En este caso se decidió utlizar un quicksort() debido a que es el metodo de ordenamiento más eficiente para lo que necesitamos realizar (ordenar una lista de objetos segun su atributo tiempo).
+
+Dado que el tiempo es un atributo numérico, Quicksort puede manejar listas de pilotos de tamaños significativos de manera eficiente, permitiendo un ordenamiento rápido incluso con cientos o miles de entradas.
 
 Complejidad:
->Mejor caso: O(nlogn) (para QuickSort o MergeSort)
-
->Peor caso: O(n2) (para BubbleSort o QuickSort en su forma menos eficiente)
-
-2. Determinar la vuelta más rápida y penalizaciones
-Búsqueda del mínimo: Se puede recorrer la lista de tiempos para encontrar la vuelta más rápida y también se puede comprobar si hay penalizaciones.
-
-Complejidad:
->Buscar el mínimo: O(n)
-
-3. Complejidad de ordenar los puntos de las escuderías: O(k log k), donde k = 10 (el número de escuderías).
-
->El programa puede manejarse con algoritmos de ordenamiento mas rápidos vistos en clase como Quicksort o Mergesort, lo que permite mantener la complejidad en O( n log n) en el peor de los casos, siendo manejable dado que n = 20 (número de pilotos) o k = 10 (número de escuderías) son valores pequeños.
-
+>Mejor caso: O(nlogn)
+>Caso Promedio: O(nlogn)
+>Peor caso: O(n2)
 
 ## SICT0302: Toma decisiones
 
 ### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
 
-Para este programa utilizaremos el mergeSort ya que tiene mayor estabilidad, y es eficiente para listas grandes, ya que su rendimiento no se ve afectado por la disposición inicial de los elementos. En este caso para el problema de ordenamiento de tiempos en la Fórmula 1 garantiza que los tiempos de los pilotos se ordenen de manera eficiente y correcta.
-En el mejor de los casos, MergeSort sigue dividiendo la lista en mitades y luego las combina, independientemente de la disposición inicial de los elementos. Complejidad: O(nlogn)
+Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
 
-En el peor de los casos, que también se presenta cuando la lista está en el orden inverso, MergeSort sigue teniendo el mismo comportamiento. Siempre divide la lista y mezcla, sin importar cómo estén ordenados los elementos y la complejidad sigue siendo O(nlogn)
+##SICT0303: Implementa acciones científicas
+
+###Implementa mecanismos para consultar información de las estructras correctos.
+El programa permitira al usuario agregar un nuevo piloto a la carrera, de modo que al agregarse, el programa devuelva la nueva lista ordenada, tomando en cuenta el tiempo del nuevo piloto. Esto lo haremos haciendo uso de un  binary tree con su metodo inorder().
+
+###Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
+El programa leerá los archivos(carreras) que contienen los  nombres, escuderias, tiempos y puntos de cada uno de los pilotos, asignando cada uno de estos datos al atributo correspondiente del objeto Piloto, para posteriormente almacenar los objetos(Pilotos) en un vector y despues manipular la información
