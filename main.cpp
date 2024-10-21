@@ -135,7 +135,7 @@ int main(){
                 }
             }
         }
-        
+        //Ordenamos los pilotos
         quickSort(listaPilotos, 0, listaPilotos.size() - 1);
 
         cout << "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  MARCADOR FINAL  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n" << endl;
@@ -156,7 +156,7 @@ int main(){
         char continuar;
         cout << "\n¿Hay algun piloto que te gustaría agregar a la carrera? (s/n): ";
         cin >> continuar;
-        if(continuar == 's' || continuar == 'S'){
+        while(continuar == 's' || continuar == 'S'){
             ArbolBinario arbolPilotos;
             string nombreN;
             string escuderiaN;
@@ -178,23 +178,14 @@ int main(){
             
             // Extraer horas, minutos, segundos y milisegundos
             ss >> horas >> separador >> minutos >> separador >> segundos >> separador >> milisegundos;
-            tiempoSegundos = (horas * 3600) + (minutos * 60) + segundos + (milisegundos / 1000.0);
+            tiempoSegundos = (horas * 3600) + (minutos * 60) + segundos;
 
             //Creamos e insertamos nuevo piloto
             Piloto *pilotoN = new Piloto(nombreN, escuderiaN, tiempoSegundos, 0);
-            pilotoN -> info();
             arbolPilotos.insertarP(pilotoN);
+            listaPilotos.push_back(*pilotoN);
             cout << "\nPiloto agregado exitosamente.\n";
             arbolPilotos.imprimir();
-
-            vector<Piloto> todosLosPilotos = arbolPilotos.obtenerPilotos();
-            cout << "\nLista completa de pilotos:\n";
-            cout << todosLosPilotos.size() << endl;
-            for(int i = 0; i < todosLosPilotos.size(); i++){
-                cout << i + 1 << ". ";
-                listaPilotos[i].info();
-            }
-
 
             //Ordenamos nuevamente la lista
             quickSort(listaPilotos, 0, listaPilotos.size() - 1);
@@ -207,6 +198,13 @@ int main(){
             for(int i = 0; i < listaPilotos.size(); i++){
                 cout << i + 1 << ". ";
                 listaPilotos[i].info();
+            }
+            cout << "¿Desea agregar otro piloto? (s/n): ";
+            cin >> continuar;
+            if(continuar == 's' || continuar == 'S'){
+                existe =true;
+            }else{
+                break;
             }
 
         }

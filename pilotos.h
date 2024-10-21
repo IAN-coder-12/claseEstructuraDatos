@@ -18,7 +18,7 @@ class Piloto{
         void parrillaSalida();
         float getTiempo(){return tiempo;}
     
-
+    
 };
 
 
