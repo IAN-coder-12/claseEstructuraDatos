@@ -187,6 +187,7 @@ int main(){
             //Creamos e insertamos nuevo piloto
             Piloto* pilotoN = new Piloto(nombreN, escuderiaN, tiempoSegundos, 0);
             arbolPilotos.insertarP(pilotoN);
+            listaPilotos.push_back(pilotoN);
             cout << "\n¡Piloto agregado exitosamente!\n";
             
             // Imprimimos el arbol inorder
@@ -214,9 +215,6 @@ int main(){
         }else{
             break;
         }
-
-
-        
     }
     cout << "\n------------ Gracias por ver la FORMULA 1 ------------\n" << endl;
 
