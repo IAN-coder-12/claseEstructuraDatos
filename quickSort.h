@@ -14,12 +14,12 @@ void swap(T &a, T &b) {
 // Función de partición para el Quick Sort
 template <typename T>
 int partition(vector<T> &arr, int low, int high) {
-    double pivot = arr[high].tiempo; // Seleccionamos el último elemento como pivote
+    double pivot = arr[high]->tiempo; // Seleccionamos el último elemento como pivote
     int i = low - 1;     // Índice del elemento más pequeño
 
     for (int j = low; j < high; j++) {
         // Si el elemento actual es menor o igual al pivote
-        if (arr[j].tiempo < pivot) { // Ahora usamos la sobrecarga del operador <
+        if (arr[j]->tiempo < pivot) { // Ahora usamos la sobrecarga del operador <
             i++;
             std::swap(arr[i], arr[j]); // Intercambiar los elementos
         }

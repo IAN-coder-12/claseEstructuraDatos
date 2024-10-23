@@ -16,7 +16,7 @@ using namespace std;
 int main(){
 
     int carrera;
-    vector<Piloto> listaPilotos;
+    vector<Piloto*> listaPilotos;
     vector<string> carreras;
     carreras.push_back("MEXICO");
     carreras.push_back("VEGAS");
@@ -130,7 +130,7 @@ int main(){
 
                             piloto[i][j] = new Piloto(pilotos[j-1], escuderias[j-1], tiempo[j-1], puntos[j-1]);
                             cout << setw(5) << j; piloto[i][j] -> parrillaSalida();
-                            listaPilotos.push_back(Piloto(pilotos[j-1], escuderias[j-1], tiempo[j-1], puntos[j-1]));
+                            listaPilotos.push_back(new Piloto(pilotos[j-1], escuderias[j-1], tiempo[j-1], puntos[j-1]));
                 
                 }
             }
@@ -144,8 +144,7 @@ int main(){
         cout << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
 
         for(int i = 0; i < listaPilotos.size(); i++){
-            cout << i + 1 << ". ";
-            listaPilotos[i].info();
+            cout << i + 1 << ". " << listaPilotos[i]->info();
         }
 
         cout << endl;
@@ -157,7 +156,7 @@ int main(){
         cout << "\n¿Hay algun piloto que te gustaría agregar a la carrera? (s/n): ";
         cin >> continuar;
         while(continuar == 's' || continuar == 'S'){
-            ArbolBinario arbolPilotos;
+            ArbolBinario<Piloto> arbolPilotos;
             string nombreN;
             string escuderiaN;
             string tiempoN;
@@ -180,25 +179,22 @@ int main(){
             ss >> horas >> separador >> minutos >> separador >> segundos >> separador >> milisegundos;
             tiempoSegundos = (horas * 3600) + (minutos * 60) + segundos;
 
+            // Creamos un arbol binario con la lista de pilotos
+            for(int i = 0; i < listaPilotos.size(); i++){    
+                arbolPilotos.insertarP(listaPilotos[i]);
+            }
+
             //Creamos e insertamos nuevo piloto
-            Piloto *pilotoN = new Piloto(nombreN, escuderiaN, tiempoSegundos, 0);
+            Piloto* pilotoN = new Piloto(nombreN, escuderiaN, tiempoSegundos, 0);
             arbolPilotos.insertarP(pilotoN);
-            listaPilotos.push_back(*pilotoN);
-            cout << "\nPiloto agregado exitosamente.\n";
+            cout << "\n¡Piloto agregado exitosamente!\n";
+            
+            // Imprimimos el arbol inorder
+            cout << "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  MARCADOR ACTUALIZADO  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n" << endl;
+            cout << "\nPos." << setw(15) << "Piloto" << setw(21) << "Escuderia" << setw(15) << "Tiempo(s)" << setw(15) << "Puntos" << endl;
+            cout << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
             arbolPilotos.imprimir();
 
-            //Ordenamos nuevamente la lista
-            quickSort(listaPilotos, 0, listaPilotos.size() - 1);
-
-            //Imprimimos el marcador actualizado
-            cout << "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  MARCADOR ACTUALIZADO  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n" << endl;
-            cout << "Pos." << setw(15) << "Piloto" << setw(21) << "Escuderia" << setw(15) << "Tiempo(s)" << setw(15) << "Puntos" << endl;
-            cout << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
-
-            for(int i = 0; i < listaPilotos.size(); i++){
-                cout << i + 1 << ". ";
-                listaPilotos[i].info();
-            }
             cout << "¿Desea agregar otro piloto? (s/n): ";
             cin >> continuar;
             if(continuar == 's' || continuar == 'S'){

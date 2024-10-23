@@ -2,71 +2,63 @@
 #include <iostream>
 using namespace std;
 
-struct Nodo {
-    Piloto piloto;        // El piloto que se almacenará en este nodo
-    Nodo* izquierda;      // Puntero al nodo izquierdo
-    Nodo* derecha;        // Puntero al nodo derecho
+template <class T>
+class Nodo {
+    public:
+        Piloto* piloto;        // El piloto que se almacenará en este nodo
+        Nodo* izquierda;      // Puntero al nodo izquierdo
+        Nodo* derecha;        // Puntero al nodo derecho
 
-    Nodo(Piloto p) : piloto(p), izquierda(nullptr), derecha(nullptr) {}
+        Nodo(T *p) : piloto(p), izquierda(nullptr), derecha(nullptr) {}
 };
 
+template <class T>
 class ArbolBinario {
 private:
-    Nodo* raiz;
+    Nodo<T>* raiz;
 
-    void insertar(Nodo*& nodo, Piloto piloto) {
+    Nodo<T>* add(Nodo<T>* nodo, T* piloto) {
         if (nodo == nullptr) {
-            nodo = new Nodo(piloto); // Crear un nuevo nodo si el lugar está vacío
-        } else if (piloto.getTiempo() < nodo->piloto.getTiempo()) { // Comparar por tiempo
-            insertar(nodo->izquierda, piloto); // Insertar en el subárbol izquierdo
-        } else {
-            insertar(nodo->derecha, piloto); // Insertar en el subárbol derecho
+            return new Nodo<T>(piloto); // Crear un nuevo nodo si el lugar está vacío
+
         }
+        if(piloto->tiempo < nodo->piloto->tiempo) { // Comparar por tiempo
+            nodo->izquierda = add(nodo->izquierda, piloto); // Insertar en el subárbol izquierdo
+        } else {
+            nodo->derecha = add(nodo->derecha, piloto); // Insertar en el subárbol derecho
+        }
+        return nodo;
     }
 
-    void imprimirEnOrden(Nodo* nodo) {
-        if (nodo != nullptr) {
-            imprimirEnOrden(nodo->izquierda); // Recorrer el subárbol izquierdo
-            nodo->piloto.info();               // Imprimir el piloto en el nodo actual
-            imprimirEnOrden(nodo->derecha);    // Recorrer el subárbol derecho
+    void imprimirEnOrden(Nodo<T>* nodo, int &contador) {
+        if(nodo == nullptr){
+            return;
         }
+
+        imprimirEnOrden(nodo->izquierda, contador); // Recorrer el subárbol izquierdo
+        cout << contador << ". " << nodo->piloto->info();   // Imprimir el piloto en el nodo actual  
+        contador++;    
+        imprimirEnOrden(nodo->derecha, contador);    // Recorrer el subárbol derecho
+        
     }
-    void obtenerPilotos(Nodo* nodo, vector<Piloto>& pilotos) {
-        if (nodo != nullptr) {
-            obtenerPilotos(nodo->izquierda, pilotos);
-            pilotos.push_back(nodo->piloto); // Agregar piloto al vector
-            obtenerPilotos(nodo->derecha, pilotos);
-        }
-    }
+    // void obtenerPilotos(Nodo* nodo, vector<Piloto>& pilotos) {
+    //     if (nodo != nullptr) {
+    //         obtenerPilotos(nodo->izquierda, pilotos);
+    //         pilotos.push_back(nodo->piloto); // Agregar piloto al vector
+    //         obtenerPilotos(nodo->derecha, pilotos);
+    //     }
+    // }
 
 public:
     ArbolBinario() : raiz(nullptr) {}
 
-    void insertarP(Piloto *piloto) {
-        insertar(raiz, *piloto);
+    void insertarP(T* piloto) {
+        raiz = add(raiz, piloto);
     }
 
     void imprimir() {
-
-        imprimirEnOrden(raiz);
-    }
-    vector<Piloto> obtenerPilotos() {
-        vector<Piloto> pilotos;
-        obtenerPilotos(raiz, pilotos);
-        return pilotos;
-    }
-
-    // Destructor para liberar memoria
-    void destruir(Nodo* nodo) {
-        if (nodo != nullptr) {
-            destruir(nodo->izquierda);
-            destruir(nodo->derecha);
-            delete nodo;
-        }
-    }
-
-    ~ArbolBinario() {
-        destruir(raiz);
+        int contador = 1;
+        imprimirEnOrden(raiz, contador);
     }
 };
 // template <class T>

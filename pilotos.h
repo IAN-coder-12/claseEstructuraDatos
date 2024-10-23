@@ -14,11 +14,11 @@ class Piloto{
         int puntos;
 
         Piloto(const string& nombre, const string& escuderia, float tiempo, int puntos);
-        void info();
+        string info();
         void parrillaSalida();
         float getTiempo(){return tiempo;}
     
-    
+
 };
 
 
@@ -33,6 +33,8 @@ Piloto::Piloto(const string& _nombre, const string& _escuderia, float _tiempo, i
 void Piloto::parrillaSalida(){
      cout << setw(20) << nombre << setw(20) << escuderia << endl;
 }
-void Piloto::info(){
-     cout << setw(20) << nombre << setw(20) << escuderia << setw(15) << tiempo << setw(15) << puntos << endl;
+string Piloto::info(){
+    ostringstream oss;
+     oss << setw(20) << nombre << setw(20) << escuderia << setw(15) << tiempo << setw(15) << puntos << endl;
+     return oss.str();
 }
