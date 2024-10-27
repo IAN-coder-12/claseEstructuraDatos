@@ -6,14 +6,14 @@ Problema: https://leetcode.com/problems/sort-colors/
 >
 Solución: https://leetcode.com/submissions/detail/1434594754/
 >
-Video: 
+Video: https://youtu.be/ELbxn5CUMIg 
 
 ## Problema 2
-Problema: 
+Problema: https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/submissions/1434725683/
 > 
-Solución: 
+Solución: https://leetcode.com/submissions/detail/1434725683/ 
 >
-Video: 
+Video: https://youtu.be/bRlVtnNV0w4 
 
 ## Problema 3
 Problema: 
