@@ -6,7 +6,7 @@ Problema: https://leetcode.com/problems/sort-colors/
 >
 Solución: https://leetcode.com/submissions/detail/1434594754/
 >
-Video: https://youtu.be/ELbxn5CUMIg 
+Video: https://youtu.be/c4l_8frRSGc
 
 ## Problema 2
 Problema: https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/submissions/1434725683/
