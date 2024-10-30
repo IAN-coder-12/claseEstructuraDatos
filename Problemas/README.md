@@ -16,10 +16,10 @@ Solución: https://leetcode.com/submissions/detail/1434725683/
 Video: https://youtu.be/bRlVtnNV0w4 
 
 ## Problema 3
-Problema: 
+Problema: https://leetcode.com/problems/recover-binary-search-tree/ 
 >
-Solución: 
+Solución: https://leetcode.com/problems/recover-binary-search-tree/description/ 
 >
-Video: 
+Video: https://youtu.be/eU9J2KH_SYo 
 
 

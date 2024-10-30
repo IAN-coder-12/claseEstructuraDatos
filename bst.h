@@ -5,7 +5,7 @@ using namespace std;
 template <class T>
 class Nodo {
     public:
-        Piloto* piloto;        // El piloto que se almacenará en este nodo
+        T* piloto;        // El piloto que se almacenará en este nodo
         Nodo* izquierda;      // Puntero al nodo izquierdo
         Nodo* derecha;        // Puntero al nodo derecho
 
