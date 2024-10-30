@@ -18,7 +18,7 @@ Video: https://youtu.be/bRlVtnNV0w4
 ## Problema 3
 Problema: https://leetcode.com/problems/recover-binary-search-tree/ 
 >
-Solución: https://leetcode.com/problems/recover-binary-search-tree/description/ 
+Solución: https://leetcode.com/submissions/detail/1437840799/
 >
 Video: https://youtu.be/eU9J2KH_SYo 
 
