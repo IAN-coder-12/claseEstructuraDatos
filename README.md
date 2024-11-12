@@ -132,15 +132,6 @@ Escribe aquí la descripción de lo que contiene este avance.
 3. Cambio 3: Razón del cambio
 4. etc...: etc...
 
-## Instrucciones para compilar el avance de proyecto
-Ejecuta el siguiente comando en la terminal:
-
-`g++ main.cpp -o primer_avance` 
-
-## Instrucciones para ejecutar el avance de proyecto
-Ejecuta el siguiente comando en la terminal:
-
-`./primer_avance` 
 
 ## Descripción de las entradas del avance de proyecto
 Escribe aquí la descripción de las entradas del proyecto, por ejemplo, si de entrada se requieren varios archivos, hay que indicar el formato de cada uno de ellos, y proporcionar un ejemplo de los datos de cada archivo.
@@ -152,13 +143,30 @@ Escribe aquí la descripción de los resultados de la ejecución de tu programa.
 
 ### SICT0301: Evalúa los componentes
 #### Hace un análisis de complejidad correcto y completo para los algoritmos de ordenamiento usados en el programa.
-Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
+
+1.Ordenar los tiempos de los pilotos (quicksort). 
+>
+Algoritmo utilizado:
+>
+Ordenamiento: Se podría utilizar un algoritmo de ordenamiento como QuickSort, MergeSort o incluso un método de ordenamiento más simple como BubbleSort. En este caso se decidió utlizar un quicksort() debido a que es el metodo de ordenamiento más eficiente para lo que necesitamos realizar (ordenar una lista de objetos segun su atributo tiempo).
+>
+Dado que el tiempo es un atributo numérico, Quicksort puede manejar listas de pilotos de tamaños significativos de manera eficiente, permitiendo un ordenamiento rápido incluso con cientos o miles de entradas.
+>
+Complejidad:
+> Mejor caso: O(nlogn)
+>
+> Caso Promedio: O(nlogn)
+>
+> Peor caso: O(n2)
+
+2.Insertar un nuevo piloto y ordenar la lista nuevamente (arbol binario) 
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 #### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-Escribe aquí tus argumentos sobre por qué consideras que has desarrrollado esta competencia y dónde se puede observar el desarrollo que mencionas.
+1. QuickSort
+Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
 
 ### SICT0302: Toma decisiones
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
@@ -172,7 +180,7 @@ Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, �
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 #### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
-Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
+El programa leerá los archivos(carreras) que contienen los  nombres, escuderias, tiempos y puntos de cada uno de los pilotos, asignando cada uno de estos datos al atributo correspondiente del objeto Piloto, para posteriormente almacenar los objetos(Pilotos) en un vector y despues manipular la información
 
 ### Implementa mecanismos de escritura de archivos para guardar los datos  de las estructuras de manera correcta
-Escribe aquí tus argumentos sobre por qué consideras que has desarrrollado esta competencia y dónde se puede observar el desarrollo que mencionas.
+Al final el prorgrama crea un archivo por cada carrera que el usuario haya seleccionado con las posiciones finales de los pilotos segun sus tiempos y asignando los puntos correspondientes a cada piloto.
