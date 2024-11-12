@@ -45,7 +45,9 @@ Para esta segunda entrega lo que buscamos es poder agregar un nuevo piloto a las
 ### Cambios sobre el primer avance
 1. Insertar nuevos pilotos: Aqui decidí que enfocaria el programa a que el usuario pudiera meter su propio piloto para que pudiera
 "competir" con los demás pilotos y darle un poco de dinamismo e interacción al programa, en lugar de que solo leyera datos.
+>
 2. Uitlización de arbol binario: En esta segunda entrega hice uso de un arbol binario para poder agregar un nuevo piloto en forma de nodo con todos sus atributos, para despues poder recorrer el arbol con el metodo inorder y desplegar la nueva tabla de resultados.
+>
 3. Lectura de archivos: En esta parte decidí que lo mejor sería generar un archivo que contuviera todas carreras disponibles para que sin importar el numero de elementos en una lista fija, el progrma funcionara adecuadamente, de modo que lee todas las ciudades en el archivo para despues insertarlos en una lista y poder manipularlos
 
 
@@ -54,7 +56,9 @@ En este tercer avance implementé la asignación de puntos a los pilotos en el e
 
 ### Cambios sobre el segundo avance
 1. Cambio de como se muestran los ganadores: Aqui decidi que sería mejor implementar una escritura de archivos por cada carrera para mostrar al usuario los tres primeros lugares.
+>
 2. Experiencia de usuario: Este cambio fue simplemente para que el programa fuera un poco más dinamico y darle al usuario una mejor experiencia al ejecutarlo
+>
 3. Asignación de puntos: En este caso solo se implemento una nueva funcin que hacía un recorrido inorder que al mismo tiempo accedia al tributo puntos del objeto piloto y le asginaba los nuevo puntos correspondientes.
 
 
@@ -62,11 +66,14 @@ En este tercer avance implementé la asignación de puntos a los pilotos en el e
 ## Descripción de las entradas del avance de proyecto
 Para este proyecto se necesita
 1. Un archivo de ciudades (carreras) en formato .txt para mostrar al usuario las carreras disponibles
+>
 2. Los archivos de cada carrera en formato .csv con los datos correspondientes de cada piloto (string nombre, string escuderia, float tiempo, int puntos) cada uno de estos datos esta en formato texto, posteriormente se hace la asginación de dichos datos a los atributos del objeto piloto.
+>
 3. Los inputs del usuario en caso de que desea agregar un nuevo piloto a la carrera. 
 
 ## Descripción de las salidas del avance de proyecto
 1. Resultados de carrera: Se despliega una tabla con los resultados de la carrera ordenado los pilotos segun su atributo tiempo. 
+>
 2. Se hace una escritura de archivos con los resultados de cada carrera con los tres primeros lugares.
 
 ## Desarrollo de competencias
@@ -88,7 +95,7 @@ Complejidad:
 > Caso Promedio: O(nlogn)
 >
 > Peor caso: O(n2)
-
+>
 2. Insertar un nuevo piloto y re-ordenar la lista (arbol binaro)
 >
 Algoritmo utilizado: Recorrido in-order  árbol binario
@@ -127,27 +134,30 @@ Peor caso: O(n)
 
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
-
+>
 1. Estructura de Datos: vector
 >
 Uso: Se utilizo para almacenar pilotos, escuderías, tiempos y puntos. Además, la función quickSort y algunos otros tipos de manipulación de datos operaran sobre un vector, es por eso que se utilizó para la primer entrega para ordenar la lista de pilotos.
 >
 Complejidad:
-Acceso aleatorio: O(1)
 >
-Caso promedio: O(n)
+>Acceso aleatorio: O(1)
 >
-Peor de los casos: O(n)
+>Caso promedio: O(n)
+>
+>Peor de los casos: O(n)
 >
 
 2. Algoritmo de Ordenamiento: quickSort
+>
 Uso: Se utiliza para ordenar el vector de objetos Piloto basado en el atributo tiempo.
 Complejidad:
-Mejor caso: O(n log n)
 >
-Caso promedio: O(n log n)
+>Mejor caso: O(n log n)
 >
-Peor caso: O(n²) (ocurre cuando el pivote es siempre el elemento mayor o menor)
+>Caso promedio: O(n log n)
+>
+>Peor caso: O(n²) (ocurre cuando el pivote es siempre el elemento mayor o menor)
 >
 
  Se utilizo Quicksort porque es un algoritmo de ordenamiento eficiente para listas grandes debido a su complejidad promedio O(n log n). Se seleccionó por su rendimiento general en la mayoría de los casos.
@@ -157,20 +167,23 @@ Peor caso: O(n²) (ocurre cuando el pivote es siempre el elemento mayor o menor)
 Se implementó para manejar la inserción y manipulación de objetos Piloto de manera ordenada. Se utiliza para insertar pilotos, imprimir en orden (in-order traversal) y actualizar puntos.
 >
 Complejidad:
-Inserción: O(h), donde h es la altura del árbol.
+>
+>Inserción: O(h), donde h es la altura del árbol.
 >
 Recorrido in-order: O(n), donde n es el número de nodos.
 >
-Mejor caso de inserción: O(log n) en un árbol balanceado.
+>Mejor caso de inserción: O(log n) en un árbol balanceado.
 >
-Peor caso de inserción y recorrido: O(n) (cuando el árbol está desbalanceado).
+>Peor caso de inserción y recorrido: O(n) (cuando el árbol está desbalanceado).
 >
 4. Operaciones de Asignación de Puntos:
+>
 Complejidad: O(n)
 >
 Descripción: La función asignarPuntosInOrder recorre el árbol in-order y asigna puntos a los nodos basados en un array de puntos. Esta operación se ejecuta en O(n) ya que recorre todos los nodos una vez.
 >
 Extracción de Elementos In-order:
+>
 Complejidad: O(n)
 >
 Descripción: La función extraerTresElementosInOrder extrae los nombres de los tres primeros elementos del árbol de forma in-order, operando en O(n) en el peor de los casos.
@@ -179,9 +192,7 @@ Descripción: La función extraerTresElementosInOrder extrae los nombres de los 
 >
 Se utiliza ifstream para leer archivos de texto y CSV, y ofstream para escribir resultados.
 >
-Complejidad:
->
-Lectura y escritura: Depende del tamaño del archivo, con una complejidad de O(n) donde n es el número de líneas o elementos a leer/escribir. La lectura de archivos es lineal respecto al número de elementos y es necesaria para cargar los datos iniciales de los pilotos y escribir los resultados de la carrera.
+Complejidad: Lectura y escritura: Depende del tamaño del archivo, con una complejidad de O(n) donde n es el número de líneas o elementos a leer/escribir. La lectura de archivos es lineal respecto al número de elementos y es necesaria para cargar los datos iniciales de los pilotos y escribir los resultados de la carrera.
 >
 6. Simulación de Espera (this_thread::sleep_for)
 >
