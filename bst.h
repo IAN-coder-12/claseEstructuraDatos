@@ -8,6 +8,7 @@ class Nodo {
         T* piloto;        // El piloto que se almacenará en este nodo
         Nodo* izquierda;      // Puntero al nodo izquierdo
         Nodo* derecha;        // Puntero al nodo derecho
+        vector<Nodo*> hijos;
 
         Nodo(T *p) : piloto(p), izquierda(nullptr), derecha(nullptr) {}
 };
@@ -41,13 +42,27 @@ private:
         imprimirEnOrden(nodo->derecha, contador);    // Recorrer el subárbol derecho
         
     }
-    // void obtenerPilotos(Nodo* nodo, vector<Piloto>& pilotos) {
-    //     if (nodo != nullptr) {
-    //         obtenerPilotos(nodo->izquierda, pilotos);
-    //         pilotos.push_back(nodo->piloto); // Agregar piloto al vector
-    //         obtenerPilotos(nodo->derecha, pilotos);
-    //     }
-    // }
+    void asignarPuntosInOrder(Nodo<T>* nodo, int &indice, const int* listaPuntos, int size) {
+        if (nodo == nullptr || indice >= size) {
+            return;
+        }
+
+        // Recorrer el subárbol izquierdo
+        asignarPuntosInOrder(nodo->izquierda, indice, listaPuntos, size);
+
+        // Asignar el valor de puntos del arreglo al nodo actual
+        if(indice < 10){
+
+        nodo->piloto->puntos = listaPuntos[indice];
+        indice++;
+        }else{
+            nodo->piloto->puntos = 0;
+        }
+
+        // Recorrer el subárbol derecho
+        asignarPuntosInOrder(nodo->derecha, indice, listaPuntos, size);
+    }
+   
 
 public:
     ArbolBinario() : raiz(nullptr) {}
@@ -60,84 +75,10 @@ public:
         int contador = 1;
         imprimirEnOrden(raiz, contador);
     }
+    void asignarPuntos(const int* listaPuntos, int size) {
+        int indice = 0;
+        asignarPuntosInOrder(raiz, indice, listaPuntos, size);
+    }
+
+
 };
-// template <class T>
-// class Nodo{
-//     Piloto piloto;        
-//     Nodo* izquierda;      
-//     Nodo* derecha;       
-
-//     Nodo(Piloto p) : piloto(p), izquierda(nullptr), derecha(nullptr) {}
-// };
-
-
-// template <class T>
-// class ArbolBinario {
-// private:
-//     Nodo <T> *raiz;
-
-//     void insertar(Nodo*& nodo, Piloto piloto) {
-//         if (nodo == nullptr) {
-//             nodo = new Nodo(piloto); // Crear un nuevo nodo si el lugar está vacío
-//         } else if (piloto.getTiempo() < nodo->piloto.getTiempo()) { // Comparar por tiempo
-//             insertar(nodo->izquierda, piloto); // Insertar en el subárbol izquierdo
-//         } else {
-//             insertar(nodo->derecha, piloto); // Insertar en el subárbol derecho
-//         }
-//     }
-
-//     void imprimirEnOrden(Nodo* nodo) {
-//         if (nodo != nullptr) {
-//             imprimirEnOrden(nodo->izquierda); // Recorrer el subárbol izquierdo
-//             nodo->piloto.info();               // Imprimir el piloto en el nodo actual
-//             imprimirEnOrden(nodo->derecha);    // Recorrer el subárbol derecho
-//         }
-//     }
-
-// public:
-//     ArbolBinario() : raiz(nullptr) {}
-//     ~ArbolBinario();
-//     void add(Piloto*);
-//     bool empty() const;
-
-// };
-
-// template <class T>
-// bool ArbolBinario<T>::empty() const {
-// 	return (raiz == 0);
-// }
-
-// template <class T>
-// void ArbolBinario<T>::add(Piloto *piloto) {   
-//     //Si el árbol está vacío, se agrega en la raíz
-// 	if(empty()){
-// 		Nodo<T> *nuevo_nodo = new Nodo<T>(val);
-// 		if(nuevo_nodo == NULL){
-// 			throw OutOfMemory();
-// 		}
-// 		raiz = nuevo_nodo;
-// 	}else{
-// 	//Si el árbol no está vacío, se agrega de manera recursiva
-// 	root -> add(piloto);
-// 	}
-// }
-
-// template <class T>
-// void inOrder() {
-//     imprimirEnOrden(raiz);
-// }
-
-// // Destructor para liberar memoria
-// template <class T>
-// void destruir(T* nodo) {
-//     if (nodo != nullptr) {
-//         destruir(nodo->izquierda);
-//         destruir(nodo->derecha);
-//         delete nodo;
-//     }
-// }
-
-// template <class T>
-// ArbolBinario<T>::~ArbolBinario() {
-// 	destruir(raiz);
-// }
