@@ -257,7 +257,7 @@ int main(){
                 tiempoSegundos = (horas * 3600) + (minutos * 60) + segundos;
 
 
-                // Creamos un arbol binario con la lista de pilotos
+                // Creamos un arbol binario con la lista de pilotos, complejidad O(n)
                 for(int i = 0; i < listaPilotos.size(); i++){    
                     arbolPilotos.insertarP(listaPilotos[i]);
                 }

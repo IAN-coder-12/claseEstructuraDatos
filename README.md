@@ -1,7 +1,4 @@
 
-
-
-
 # Proyecto: Programa para la F1 que ordena los tiempos de los pilotos de la temporada 2023.
 Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 > Paso 1: El programa preguntará al usuario que carrera desea ver
@@ -130,21 +127,98 @@ Peor caso: O(n)
 
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
-Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
+
+1. Estructura de Datos: vector
+>
+Uso: Se utilizo para almacenar pilotos, escuderías, tiempos y puntos. Además, la función quickSort y algunos otros tipos de manipulación de datos operaran sobre un vector, es por eso que se utilizó para la primer entrega para ordenar la lista de pilotos.
+>
+Complejidad:
+Acceso aleatorio: O(1)
+>
+Caso promedio: O(n)
+>
+Peor de los casos: O(n)
+>
+
+2. Algoritmo de Ordenamiento: quickSort
+Uso: Se utiliza para ordenar el vector de objetos Piloto basado en el atributo tiempo.
+Complejidad:
+Mejor caso: O(n log n)
+>
+Caso promedio: O(n log n)
+>
+Peor caso: O(n²) (ocurre cuando el pivote es siempre el elemento mayor o menor)
+>
+
+ Se utilizo Quicksort porque es un algoritmo de ordenamiento eficiente para listas grandes debido a su complejidad promedio O(n log n). Se seleccionó por su rendimiento general en la mayoría de los casos.
+>
+3. Estructura de Datos: Árbol Binario de Búsqueda (ArbolBinario)
+>
+Se implementó para manejar la inserción y manipulación de objetos Piloto de manera ordenada. Se utiliza para insertar pilotos, imprimir en orden (in-order traversal) y actualizar puntos.
+>
+Complejidad:
+Inserción: O(h), donde h es la altura del árbol.
+>
+Recorrido in-order: O(n), donde n es el número de nodos.
+>
+Mejor caso de inserción: O(log n) en un árbol balanceado.
+>
+Peor caso de inserción y recorrido: O(n) (cuando el árbol está desbalanceado).
+>
+4. Operaciones de Asignación de Puntos:
+Complejidad: O(n)
+>
+Descripción: La función asignarPuntosInOrder recorre el árbol in-order y asigna puntos a los nodos basados en un array de puntos. Esta operación se ejecuta en O(n) ya que recorre todos los nodos una vez.
+>
+Extracción de Elementos In-order:
+Complejidad: O(n)
+>
+Descripción: La función extraerTresElementosInOrder extrae los nombres de los tres primeros elementos del árbol de forma in-order, operando en O(n) en el peor de los casos.
+>
+5. Lectura de Archivos
+>
+Se utiliza ifstream para leer archivos de texto y CSV, y ofstream para escribir resultados.
+>
+Complejidad:
+>
+Lectura y escritura: Depende del tamaño del archivo, con una complejidad de O(n) donde n es el número de líneas o elementos a leer/escribir. La lectura de archivos es lineal respecto al número de elementos y es necesaria para cargar los datos iniciales de los pilotos y escribir los resultados de la carrera.
+>
+6. Simulación de Espera (this_thread::sleep_for)
+>
+Se utilizó para simular la espera durante la carrera.
+>
+Complejidad: No afecta la complejidad algorítmica del programa en términos de operaciones de datos, pero añade un retraso controlado en tiempo de ejecución.
 
 #### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-Escribe aquí tus argumentos sobre por qué consideras que has desarrrollado esta competencia y dónde se puede observar el desarrollo que mencionas.
-
+>
+Algunos componentes o funciones extras del programa son: 
+>
+1. La creación de objetos y asignación de atributos, que tiene un complejidad de O(n2) ya que se utiliza un doble bucle for para crear una tabla de 20x4 (Piloto *piloto[4][20]).
+>
+2. Mostar carreras por pantalla: se hace un recorrido a la lista que se crea a partir del archivo con un bucle for, por lo que tien complejidad O(n)
+>
+3. dentro del bucle while (que nos permite reguntar usuario si quiere ver otra carrera, agregar un piloto, o salir) tiene complejidad O(1) ya que no se utilizan estructuras de datos adicionales que crezcan con el número de iteraciones, solo se necesita espacio para las variables de control y la entrada del usuario.
+>
+4. al crear archivo de ganadores se utiliza un bucle for de complejidad O(n) para recorrer la lista de carreras y comprobar que es la carrera seleccionada para crear el archivo correspondiente a la carrera con dicho nombre.
+>
+Tomando en cuenta este análisis de complejidad y el análisis del punto anterior de las estructuras de datos utilizados, podemos ver que por más que tenemos una estructura de datos con complejidad O(logn) o O(1), al crear los objetos por medio de un doble bucle for la complejidad final es O(n2).
+>
+NOTA: La complejidad de ciertas funciones se  encuentra comentada en el codigo
 
 ### SICT0302: Toma decisiones
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
-1. QuickSort
-Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
+QuickSort
+>
+Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
 
 #### Selecciona una estructura de datos adecuada al problema y la usa correctamente.
-1. Arbol binario
-Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
+Arbol binario
+>
+Tomando en cuenta los análisis de complejidad anteriores, un árbol binario, tiene una complejidad promedio de O(logn) al insertar un nodo si el árbol está balanceado. Esto es ideal nuestro programa ya que nos permite agregar pilotos de forma secuencial y mantener una estructura relativamente ordenada.
 
+Para la parte del ordenamiento el recorrido inorder (izquierda-raíz-derecha) nos garantiza que los elementos se impriman de menor a mayor segun el atributo tiempo, el recorrido inorder nos permite mostrar automáticamente los pilotos de manera ordenada por ese atributo.
+Otra buena razónde utilizar el arbol binario para el ordenamiento despues de insertar un piloto es que nos permite tener cierta escalabilidad, en escenarios con un número creciente de pilotos, el árbol binario sigue ofreciendo buenas prestaciones en inserción, búsqueda y recorrido en comparación con estructuras de datos como listas, donde el acceso y la ordenación son más tardados.
+ 
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
