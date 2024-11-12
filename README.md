@@ -102,11 +102,11 @@ Algoritmo utilizado: Recorrido in-order  árbol binario
 >
 Utilice el recorrido inorder para recorrer el árbol binario y visitar sus nodos en orden ascendente, que  va de la sig manera:
 >
-Subárbol izquierdo
+>Subárbol izquierdo
 >
-Nodo raíz
+>Nodo raíz
 >
-Subárbol derecho
+>Subárbol derecho
 >
 Este recorrido nos ayuda a que los elementos del árbol se procesen en orden creciente. Para realizar este recorrido, se usa una función recursiva que primero visita el subárbol izquierdo, luego el nodo actual, y finalmente el subárbol derecho.
 >   
