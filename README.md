@@ -39,32 +39,38 @@ Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 
 
 ## Descripción del avance 1
-Pega aquí la descripción de tu primer avance.
+Este proyecto busca extraer datos oficiales de las carreras de F1 de la temporada de 2023, que se encuntran en un hoja de excel, para posteriormente agregarlos a una estructura de datos que nos permita utilizar un algoritmo de ordenamiento para determinar que piloto
+tuvieron las mejores posiciones de acuerdo a sus tiempos, se planea utilizar un quicksort para esta parte. Una vez obtenido los datos de los tres primeros lugares, estos se agregaran a un nuevo conjuntos de campeonato de pilotos para determinar quien fue el ganador de toda la temporada.
 
 ## Descripción del avance 2
-Pega aquí la descripción de tu segundo avance.
+Para esta segunda entrega lo que buscamos es poder agregar un nuevo piloto a las carreras, tanto como el usuario desee, y ahora con el tiempo que haga este nuevo piloto en la carrera se re-ordenaran las posiciones, esta vez se utilizó un arbol binario de modo que se pudiera agregar un nuevo nodo a la estructura para despues hacer un recorrido inorder y ordenar a los pilotos.
 
 ### Cambios sobre el primer avance
-1. Escribe la lista de cambios realizados sobre el planteamiento original: Argumenta la razón por la que decidiste el cambio. Estos argumentos puedes retomarlos más adelante en tu argumentación de competencias.
-2. Cambio 2: Razón del cambio
-3. Cambio 3: Razón del cambio
-4. etc...: etc...
+1. Insertar nuevos pilotos: Aqui decidí que enfocaria el programa a que el usuario pudiera meter su propio piloto para que pudiera
+"competir" con los demás pilotos y darle un poco de dinamismo e interacción al programa, en lugar de que solo leyera datos.
+2. Uitlización de arbol binario: En esta segunda entrega hice uso de un arbol binario para poder agregar un nuevo piloto en forma de nodo con todos sus atributos, para despues poder recorrer el arbol con el metodo inorder y desplegar la nueva tabla de resultados.
+3. Lectura de archivos: En esta parte decidí que lo mejor sería generar un archivo que contuviera todas carreras disponibles para que sin importar el numero de elementos en una lista fija, el progrma funcionara adecuadamente, de modo que lee todas las ciudades en el archivo para despues insertarlos en una lista y poder manipularlos
+
 
 ## Descripción del avance 3
-Escribe aquí la descripción de lo que contiene este avance. 
+En este tercer avance implementé la asignación de puntos a los pilotos en el escenario en el que el usuario desea ingresar un nuevo piloto, ya que al reordenarse toda la tabla los puntos asignados tambien deberian cambiar dependiendo de las nuevas posiciones de los pilotos, ademas se implentó la funcion de escritura de archivos para generar un nuevo archivo de ganadores por cada carrera con los tres primeros lugares, finalemente se mejoró un poco la experiencia del usuario, mostrando leyendas en la consola cada que se exogia una carrera para simular qué es lo que pasaba en ese momento.
 
 ### Cambios sobre el segundo avance
-1. Escribe la lista de cambios realizados sobre el planteamiento pasado: Argumenta la razón por la que decidiste el cambio. Estos argumentos puedes retomarlos más adelante en tu argumentación de competencias.
-2. Cambio 2: Razón del cambio
-3. Cambio 3: Razón del cambio
-4. etc...: etc...
+1. Cambio de como se muestran los ganadores: Aqui decidi que sería mejor implementar una escritura de archivos por cada carrera para mostrar al usuario los tres primeros lugares.
+2. Experiencia de usuario: Este cambio fue simplemente para que el programa fuera un poco más dinamico y darle al usuario una mejor experiencia al ejecutarlo
+3. Asignación de puntos: En este caso solo se implemento una nueva funcin que hacía un recorrido inorder que al mismo tiempo accedia al tributo puntos del objeto piloto y le asginaba los nuevo puntos correspondientes.
+
 
 
 ## Descripción de las entradas del avance de proyecto
-Escribe aquí la descripción de las entradas del proyecto, por ejemplo, si de entrada se requieren varios archivos, hay que indicar el formato de cada uno de ellos, y proporcionar un ejemplo de los datos de cada archivo.
+Para este proyecto se necesita
+1. Un archivo de ciudades (carreras) en formato .txt para mostrar al usuario las carreras disponibles
+2. Los archivos de cada carrera en formato .csv con los datos correspondientes de cada piloto (string nombre, string escuderia, float tiempo, int puntos) cada uno de estos datos esta en formato texto, posteriormente se hace la asginación de dichos datos a los atributos del objeto piloto.
+3. Los inputs del usuario en caso de que desea agregar un nuevo piloto a la carrera. 
 
 ## Descripción de las salidas del avance de proyecto
-Escribe aquí la descripción de los resultados de la ejecución de tu programa.
+1. Resultados de carrera: Se despliega una tabla con los resultados de la carrera ordenado los pilotos segun su atributo tiempo. 
+2. Se hace una escritura de archivos con los resultados de cada carrera con los tres primeros lugares.
 
 ## Desarrollo de competencias
 
@@ -86,7 +92,42 @@ Complejidad:
 >
 > Peor caso: O(n2)
 
-2.Insertar un nuevo piloto y ordenar la lista nuevamente (arbol binario) 
+2. Insertar un nuevo piloto y re-ordenar la lista (arbol binaro)
+>
+Algoritmo utilizado: Recorrido in-order  árbol binario
+>
+Utilice el recorrido inorder para recorrer el árbol binario y visitar sus nodos en orden ascendente, que  va de la sig manera:
+>
+Subárbol izquierdo
+>
+Nodo raíz
+>
+Subárbol derecho
+>
+Este recorrido nos ayuda a que los elementos del árbol se procesen en orden creciente. Para realizar este recorrido, se usa una función recursiva que primero visita el subárbol izquierdo, luego el nodo actual, y finalmente el subárbol derecho.
+>   
+Inserción de un nuevo nodo: 
+>
+Para insertar un nodo en un árbol binario de búsqueda, se sigue una estrategia de comparación. Comenzando en la raíz:
+
+Si el valor del nuevo nodo(especificamente de su atributo tiempo) es menor que el valor del nodo actual, se avanza al subárbol izquierdo.
+Si el valor es mayor, se avanza al subárbol derecho.
+Si se llega a un lugar donde no hay nodo (un NULL), se inserta el nuevo nodo en esa posición.
+
+Complejidad (recorrido inorder):
+Mejor caso:O(n)
+>
+Caso promedio: O(n)
+>
+Peor caso: O(n)
+>
+Complejidad (insertar un nuevo nodo):
+Mejor caso:O(logn)
+>
+Caso promedio: O(logn)
+>
+Peor caso: O(n)
+
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
@@ -101,6 +142,7 @@ Escribe aquí tus argumentos sobre por qué consideras que has desarrrollado est
 Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
 
 #### Selecciona una estructura de datos adecuada al problema y la usa correctamente.
+1. Arbol binario
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 ### SICT0303: Implementa acciones científicas
@@ -111,4 +153,4 @@ Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, �
 El programa leerá los archivos(carreras) que contienen los  nombres, escuderias, tiempos y puntos de cada uno de los pilotos, asignando cada uno de estos datos al atributo correspondiente del objeto Piloto, para posteriormente almacenar los objetos(Pilotos) en un vector y despues manipular la información
 
 ### Implementa mecanismos de escritura de archivos para guardar los datos  de las estructuras de manera correcta
-Al final el prorgrama crea un archivo por cada carrera que el usuario haya seleccionado con las posiciones finales de los pilotos segun sus tiempos y asignando los puntos correspondientes a cada piloto.
+Al final el prorgrama crea un archivo por cada carrera que el usuario haya seleccionado con las 3 mejores posiciones finales de los pilotos segun sus tiempos y asignando los puntos correspondientes a cada piloto.

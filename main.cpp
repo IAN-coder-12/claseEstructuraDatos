@@ -74,8 +74,6 @@ int main(){
     cout<<"\n     --------------- BIENVENIDO A LA FORMULA 1 ------------------\n"<< endl;
     cout<<"\n--------------- Selecciona la carrera que te gustaría ver------------------\n"<< endl;
     
- 
-    
     bool existe = true;
 
     while(existe){
@@ -115,7 +113,7 @@ int main(){
                 //Creamos una variable para los archivos
                 string nombreArch = carreras[i] + ".csv";
                 transform(nombreArch.begin(), nombreArch.end(), nombreArch.begin(), ::tolower);
-                
+
                 // Abrir archivo CSV
                 ifstream archivo(nombreArch); 
                 if (!archivo) { // Verificar si el archivo se abrió correctamente
@@ -124,12 +122,12 @@ int main(){
                     break;
                 }
 
+
                  //Iniciamos interfaz
                 cout << "\n------------- ¡BIENVENIDO AL GRAN PREMIO DE  " << carreras[i] << "! ---------------\n" << endl;
                 cout << "\nNOTA: Los resultados coninciden con los de las carreras de la temporada 2023\n" << endl;
                 
-               
-             
+                
                 vector<string> pilotos;
                 vector<string> escuderias;
                 vector<double> tiempo;
@@ -211,8 +209,25 @@ int main(){
 
             cout << endl;
             cout << "IMPORTANTE: Los pilotos con tiempo 10101 significa que no terminaron la carrera, por algún choque o fallas en el auto." << endl;
-           
-            
+               
+            //Creamos archivos de ganadores
+            for(int i = 0; i <= numCarreras; i++){
+                 if(i+1 == carrera){
+                    string archGanadores = carreras[i] + "Winners" + ".txt";
+                    ofstream archivo2(archGanadores);
+                    if (!archivo2) {
+                        cerr << "No se pudo abrir el archivo." << endl;
+                        return 1;
+                    }
+                    
+                    archivo2 << "Ganadores del Gran Premio de " << carreras[i] << endl;
+                    archivo2 << "\n1. "<<listaPilotos[0] -> nombre << endl;
+                    archivo2 << "2. "<<listaPilotos[1] -> nombre << endl;
+                    archivo2 << "3. "<<listaPilotos[2] -> nombre << endl;
+
+                    archivo2.close();
+                 }
+            }
             //Ingresa un piloto nuevo
             char continuar;
             cout << "\n¿Hay algun piloto que te gustaría agregar a la carrera? (s/n): ";
@@ -265,14 +280,22 @@ int main(){
                 // Mandamos a imprimir el arbol binario para mostrar los datos por consola
                 arbolPilotos.imprimir();
                 
+                //Actualizamos archivo con los nuevos ganadores 
+                for(int i = 0; i <= numCarreras; i++){
+                    if(i+1 == carrera){
+                        string archGanadores = carreras[i] + "Winners" + ".txt";
+       
+                        arbolPilotos.escribirTresElementosEnArchivo(archGanadores);
+                        
+                    }
+                }
                 cout << "¿Desea agregar otro piloto? (s/n): ";
                 cin >> continuar;
                 if(continuar == 's' || continuar == 'S'){
                     existe = true;
                 }else{
                     break;
-                }
-                
+                }           
 
             }
         }
@@ -287,6 +310,7 @@ int main(){
         }else{
             break;
         }
+
     }
     cout << "\n------------ Gracias por ver la FORMULA 1 ------------\n" << endl;
 

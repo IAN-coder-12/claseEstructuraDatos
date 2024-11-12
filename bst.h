@@ -63,6 +63,19 @@ private:
         asignarPuntosInOrder(nodo->derecha, indice, listaPuntos, size);
     }
    
+    void extraerTresElementosInOrder(Nodo<T>* nodo, vector<string>& elementos) {
+        if (!nodo || elementos.size() >= 3) {
+            return;
+        }
+
+        // Recorrido in-order: izquierda, raíz, derecha
+        extraerTresElementosInOrder(nodo->izquierda, elementos);
+        if (elementos.size() < 3) {
+            elementos.push_back(nodo->piloto->nombre); // Llamar a un método para obtener la información del piloto
+        }
+        extraerTresElementosInOrder(nodo->derecha, elementos);
+    }
+   
 
 public:
     ArbolBinario() : raiz(nullptr) {}
@@ -80,5 +93,40 @@ public:
         asignarPuntosInOrder(raiz, indice, listaPuntos, size);
     }
 
+    void extraerTresElementos(Nodo<T>* nodo, vector<string>& elementos) {
+        if (!nodo || elementos.size() >= 3) {
+            return;
+        }
+
+        // Recorrido in-order: izquierda, raíz, derecha
+        extraerTresElementos(nodo->izquierdo, elementos);
+        if (elementos.size() < 3) {
+            elementos.push_back(nodo->piloto.getNombre());
+        }
+        extraerTresElementos(nodo->derecho, elementos);
+    }
+
+     void escribirTresElementosEnArchivo(const string& nombreArchivo) {
+        vector<string> elementos;
+        extraerTresElementosInOrder(raiz, elementos);
+
+        // Abrir el archivo en modo de sobrescribir
+        ofstream archivo(nombreArchivo);
+        if (!archivo) {
+            cerr << "No se pudo abrir el archivo para escribir." << endl;
+            return;
+        }
+
+        // Escribir los elementos en el archivo
+        archivo << "Ganadores de la carrera actualizados " << endl;
+        int index = 1;
+        for (const auto& elem : elementos) {
+            archivo << index<< ". "<< elem << endl;
+            index++;
+        
+        }
+
+        archivo.close();
+    }
 
 };

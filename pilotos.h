@@ -17,7 +17,9 @@ class Piloto{
         string info();
         void parrillaSalida();
         float getTiempo(){return tiempo;}
-    
+        string getNombre() const {
+            return nombre;
+        }
 
 };
 

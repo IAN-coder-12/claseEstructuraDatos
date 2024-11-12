@@ -1,1 +1,1 @@
-  // arbolPilotos.imprimir();
+archivo2 << "Ganadores del Gran Premio de " << carreras[i] << endl;
