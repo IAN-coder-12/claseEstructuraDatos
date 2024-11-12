@@ -1,4 +1,7 @@
 
+
+
+
 # Proyecto: Programa para la F1 que ordena los tiempos de los pilotos de la temporada 2023.
 Este proyecto buscara filtrar los tiempos de los pilotos de formula 1:
 > Paso 1: El programa preguntará al usuario que carrera desea ver
@@ -89,19 +92,20 @@ Complejidad:
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 #### Hace un análisis de complejidad correcto y completo para todos los demás componentes del programa y determina la complejidad final del programa.
-1. QuickSort
-Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
+Escribe aquí tus argumentos sobre por qué consideras que has desarrrollado esta competencia y dónde se puede observar el desarrollo que mencionas.
+
 
 ### SICT0302: Toma decisiones
 #### Selecciona un algoritmo de ordenamiento adecuado al problema y lo usa correctamente.
-Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
+1. QuickSort
+Tomando en cuenta lo anterior, Quicksort tiene una complejidad de espacio adicional de O(logn) debido a la recursión. Esto es más eficiente que otros algoritmos como Merge Sort, que requiere O(n) espacio adicional, lo que es ventajoso al ordenar estructuras más grandes como en este caso para la lista de pilotos. Es por eso que se decidió usar este algoritmo
 
 #### Selecciona una estructura de datos adecuada al problema y la usa correctamente.
 Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
-El programa permitira al usuario agregar un nuevo piloto a la carrera, de modo que al agregarse, el programa devuelva la nueva lista ordenada, tomando en cuenta el tiempo del nuevo piloto. Esto lo haremos haciendo uso de un  binary tree con su metodo inorder().
+Si lograste este criterio anteriormente, copia aquí tu argumentación. Si no, ésta es una nueva oportunidad para lograrlo. Escribe aquí tu aprendizaje y tus argumentos sobre por qué consideras que ahora ya has desarrrollado este criterio y dónde se puede observar el desarrollo que mencionas.
 
 #### Implementa mecanismos de lectura de archivos para cargar datos a las estructuras de manera correcta.
 El programa leerá los archivos(carreras) que contienen los  nombres, escuderias, tiempos y puntos de cada uno de los pilotos, asignando cada uno de estos datos al atributo correspondiente del objeto Piloto, para posteriormente almacenar los objetos(Pilotos) en un vector y despues manipular la información
