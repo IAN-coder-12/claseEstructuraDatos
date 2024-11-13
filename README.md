@@ -96,7 +96,7 @@ Complejidad:
 >
 > Peor caso: O(n2)
 >
-2. Insertar un nuevo piloto y re-ordenar la lista (arbol binaro)
+2.Insertar un nuevo piloto y re-ordenar la lista (arbol binaro)
 >
 Algoritmo utilizado: Recorrido in-order árbol binario
 >
@@ -135,7 +135,7 @@ Complejidad (insertar un nuevo nodo):
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
 >
-1. Estructura de Datos: vector
+1.Estructura de Datos: vector
 >
 Uso: Se utilizo para almacenar pilotos, escuderías, tiempos y puntos. Además, la función quickSort y algunos otros tipos de manipulación de datos operaran sobre un vector, es por eso que se utilizó para la primer entrega para ordenar la lista de pilotos.
 >
@@ -148,7 +148,7 @@ Complejidad:
 >Peor de los casos: O(n)
 >
 
-2. Algoritmo de Ordenamiento: quickSort
+2.Algoritmo de Ordenamiento: quickSort
 >
 Uso: Se utiliza para ordenar el vector de objetos Piloto basado en el atributo tiempo.
 Complejidad:
@@ -161,7 +161,7 @@ Complejidad:
 >
 
 >
-3. Estructura de Datos: Árbol Binario de Búsqueda (ArbolBinario)
+3.Estructura de Datos: Árbol Binario de Búsqueda (ArbolBinario)
 >
 Se implementó para manejar la inserción y manipulación de objetos Piloto de manera ordenada. Se utiliza para insertar pilotos, imprimir en orden (in-order traversal) y actualizar puntos.
 >
@@ -175,25 +175,25 @@ Recorrido in-order: O(n), donde n es el número de nodos.
 >
 >Peor caso de inserción y recorrido: O(n) (cuando el árbol está desbalanceado).
 >
-4. Operaciones de Asignación de Puntos:
+4.Operaciones de Asignación de Puntos:
 >
 Descripción: La función asignarPuntosInOrder recorre el árbol in-order y asigna puntos a los nodos basados en un array de puntos. Esta operación se ejecuta en O(n) ya que recorre todos los nodos una vez.
 >
 Complejidad: O(n)
 >
-5. Extracción de Elementos In-order:
+5.Extracción de Elementos In-order:
 >
 Descripción: La función extraerTresElementosInOrder extrae los nombres de los tres primeros elementos del árbol de forma in-order, operando en O(n) en el peor de los casos.
 >
 Complejidad: O(n)
 >
-6. Lectura de Archivos
+6.Lectura de Archivos
 >
 Se utiliza ifstream para leer archivos de texto y CSV, y ofstream para escribir resultados.
 >
 Complejidad: Lectura y escritura: Depende del tamaño del archivo, con una complejidad de O(n) donde n es el número de líneas o elementos a leer/escribir. La lectura de archivos es lineal respecto al número de elementos y es necesaria para cargar los datos iniciales de los pilotos y escribir los resultados de la carrera.
 >
-7. Simulación de Espera (this_thread::sleep_for)
+7.Simulación de Espera (this_thread::sleep_for)
 >
 Se utilizó para simular la espera durante la carrera.
 >
@@ -203,13 +203,13 @@ Complejidad: No afecta la complejidad algorítmica del programa en términos de 
 >
 Algunos componentes o funciones extras del programa son: 
 >
-1. La creación de objetos y asignación de atributos, que tiene un complejidad de O(n2) ya que se utiliza un doble bucle for para crear una tabla de 20x4 (Piloto *piloto[4][20]).
+1.La creación de objetos y asignación de atributos, que tiene un complejidad de O(n2) ya que se utiliza un doble bucle for para crear una tabla de 20x4 (Piloto *piloto[4][20]).
 >
-2. Mostar carreras por pantalla: se hace un recorrido a la lista que se crea a partir del archivo con un bucle for, por lo que tien complejidad O(n)
+2.Mostar carreras por pantalla: se hace un recorrido a la lista que se crea a partir del archivo con un bucle for, por lo que tien complejidad O(n)
 >
-3. dentro del bucle while (que nos permite reguntar usuario si quiere ver otra carrera, agregar un piloto, o salir) tiene complejidad O(1) ya que no se utilizan estructuras de datos adicionales que crezcan con el número de iteraciones, solo se necesita espacio para las variables de control y la entrada del usuario.
+3.dentro del bucle while (que nos permite reguntar usuario si quiere ver otra carrera, agregar un piloto, o salir) tiene complejidad O(1) ya que no se utilizan estructuras de datos adicionales que crezcan con el número de iteraciones, solo se necesita espacio para las variables de control y la entrada del usuario.
 >
-4. al crear archivo de ganadores se utiliza un bucle for de complejidad O(n) para recorrer la lista de carreras y comprobar que es la carrera seleccionada para crear el archivo correspondiente a la carrera con dicho nombre.
+4.al crear archivo de ganadores se utiliza un bucle for de complejidad O(n) para recorrer la lista de carreras y comprobar que es la carrera seleccionada para crear el archivo correspondiente a la carrera con dicho nombre.
 >
 Tomando en cuenta este análisis de complejidad y el análisis del punto anterior de las estructuras de datos utilizados, podemos ver que por más que tenemos una estructura de datos con complejidad O(logn) o O(1), al crear los objetos por medio de un doble bucle for la complejidad final es O(n2).
 >
