@@ -19,7 +19,7 @@ using namespace std;
                     // Mostrar mensaje de carga
                     cout << "\nIniciando carrera";
                     
-                    // Simular carga con un bucle para mostrar puntos
+                    // Simular carga con un bucle para mostrar puntos complejidad O(n)
                     for (int i = 0; i < 3; ++i) {
                         cout << ".";
                         cout.flush(); // Asegurarse de que los puntos se impriman inmediatamente
@@ -79,6 +79,7 @@ int main(){
     while(existe){
         
         int index = 1;
+        // complejidad O(n)
         for (const string& texto : carreras) {
             cout << "\n" <<index<<". "<< texto << endl;
             index++;
@@ -103,7 +104,7 @@ int main(){
             break;
         }
 
-       //Creamos e imprimimemos los objetos para la carrera seleccionada
+       //Creamos e imprimimemos los objetos para la carrera seleccionada complejidad O(n2) por el doble ciclo for
         for(int i = 0; i <= numCarreras; i++){
             if(i+1 == carrera){
 
@@ -202,7 +203,7 @@ int main(){
             // Imprimir el encabezado de la tabla
             cout << "Pos." << setw(15) << "Piloto" << setw(21) << "Escuderia" << setw(15) << "Tiempo(s)" << setw(15) << "Puntos" << endl;
             cout << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
-
+            //complejidad O(n)
             for(int i = 0; i < listaPilotos.size(); i++){
                 cout << i + 1 << ". " << listaPilotos[i]->info();
             }
@@ -210,7 +211,7 @@ int main(){
             cout << endl;
             cout << "IMPORTANTE: Los pilotos con tiempo 10101 significa que no terminaron la carrera, por algún choque o fallas en el auto." << endl;
                
-            //Creamos archivos de ganadores
+            //Creamos archivos de ganadores complejidad O(n)
             for(int i = 0; i <= numCarreras; i++){
                  if(i+1 == carrera){
                     string archGanadores = carreras[i] + "Winners" + ".txt";
@@ -280,7 +281,7 @@ int main(){
                 // Mandamos a imprimir el arbol binario para mostrar los datos por consola
                 arbolPilotos.imprimir();
                 
-                //Actualizamos archivo con los nuevos ganadores 
+                //Actualizamos archivo con los nuevos ganadores complejidad O(n)
                 for(int i = 0; i <= numCarreras; i++){
                     if(i+1 == carrera){
                         string archGanadores = carreras[i] + "Winners" + ".txt";
