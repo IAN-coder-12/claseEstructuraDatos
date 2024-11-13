@@ -98,9 +98,9 @@ Complejidad:
 >
 2. Insertar un nuevo piloto y re-ordenar la lista (arbol binaro)
 >
-Algoritmo utilizado: Recorrido in-order  árbol binario
+Algoritmo utilizado: Recorrido in-order árbol binario
 >
-Utilice el recorrido inorder para recorrer el árbol binario y visitar sus nodos en orden ascendente, que  va de la sig manera:
+Utilicé el recorrido inorder para recorrer el árbol binario y visitar sus nodos en orden ascendente, que va de la sig manera:
 >
 >Subárbol izquierdo
 >
@@ -119,18 +119,18 @@ Si el valor es mayor, se avanza al subárbol derecho.
 Si se llega a un lugar donde no hay nodo (un NULL), se inserta el nuevo nodo en esa posición.
 
 Complejidad (recorrido inorder):
-Mejor caso:O(n)
+>Mejor caso:O(n)
 >
-Caso promedio: O(n)
+>Caso promedio: O(n)
 >
-Peor caso: O(n)
+>Peor caso: O(n)
 >
 Complejidad (insertar un nuevo nodo):
-Mejor caso:O(logn)
+>Mejor caso:O(logn)
 >
-Caso promedio: O(logn)
+>Caso promedio: O(logn)
 >
-Peor caso: O(n)
+>Peor caso: O(n)
 
 
 #### Hace un análisis de complejidad correcto y completo de todas las estructuras de datos y cada uno de sus usos en el programa.
@@ -160,7 +160,6 @@ Complejidad:
 >Peor caso: O(n²) (ocurre cuando el pivote es siempre el elemento mayor o menor)
 >
 
- Se utilizo Quicksort porque es un algoritmo de ordenamiento eficiente para listas grandes debido a su complejidad promedio O(n log n). Se seleccionó por su rendimiento general en la mayoría de los casos.
 >
 3. Estructura de Datos: Árbol Binario de Búsqueda (ArbolBinario)
 >
@@ -168,7 +167,7 @@ Se implementó para manejar la inserción y manipulación de objetos Piloto de m
 >
 Complejidad:
 >
->Inserción: O(h), donde h es la altura del árbol.
+>Inserción: O(n), donde n es la altura del árbol.
 >
 Recorrido in-order: O(n), donde n es el número de nodos.
 >
@@ -178,23 +177,23 @@ Recorrido in-order: O(n), donde n es el número de nodos.
 >
 4. Operaciones de Asignación de Puntos:
 >
-Complejidad: O(n)
->
 Descripción: La función asignarPuntosInOrder recorre el árbol in-order y asigna puntos a los nodos basados en un array de puntos. Esta operación se ejecuta en O(n) ya que recorre todos los nodos una vez.
 >
-Extracción de Elementos In-order:
->
 Complejidad: O(n)
+>
+5. Extracción de Elementos In-order:
 >
 Descripción: La función extraerTresElementosInOrder extrae los nombres de los tres primeros elementos del árbol de forma in-order, operando en O(n) en el peor de los casos.
 >
-5. Lectura de Archivos
+Complejidad: O(n)
+>
+6. Lectura de Archivos
 >
 Se utiliza ifstream para leer archivos de texto y CSV, y ofstream para escribir resultados.
 >
 Complejidad: Lectura y escritura: Depende del tamaño del archivo, con una complejidad de O(n) donde n es el número de líneas o elementos a leer/escribir. La lectura de archivos es lineal respecto al número de elementos y es necesaria para cargar los datos iniciales de los pilotos y escribir los resultados de la carrera.
 >
-6. Simulación de Espera (this_thread::sleep_for)
+7. Simulación de Espera (this_thread::sleep_for)
 >
 Se utilizó para simular la espera durante la carrera.
 >
@@ -227,8 +226,7 @@ Arbol binario
 >
 Tomando en cuenta los análisis de complejidad anteriores, un árbol binario, tiene una complejidad promedio de O(logn) al insertar un nodo si el árbol está balanceado. Esto es ideal nuestro programa ya que nos permite agregar pilotos de forma secuencial y mantener una estructura relativamente ordenada.
 
-Para la parte del ordenamiento el recorrido inorder (izquierda-raíz-derecha) nos garantiza que los elementos se impriman de menor a mayor segun el atributo tiempo, el recorrido inorder nos permite mostrar automáticamente los pilotos de manera ordenada por ese atributo.
-Otra buena razónde utilizar el arbol binario para el ordenamiento despues de insertar un piloto es que nos permite tener cierta escalabilidad, en escenarios con un número creciente de pilotos, el árbol binario sigue ofreciendo buenas prestaciones en inserción, búsqueda y recorrido en comparación con estructuras de datos como listas, donde el acceso y la ordenación son más tardados.
+Para la parte del ordenamiento el recorrido inorder (izquierda-raíz-derecha) nos garantiza que los elementos se impriman de menor a mayor segun el atributo tiempo, el recorrido inorder nos permite mostrar automáticamente los pilotos de manera ordenada por ese atributo. Otra buena razónde utilizar el arbol binario para el ordenamiento despues de insertar un piloto es que nos permite tener cierta escalabilidad, en escenarios con un número creciente de pilotos, el árbol binario sigue ofreciendo buenas prestaciones en inserción, búsqueda y recorrido en comparación con estructuras de datos como listas, donde el acceso y la ordenación son más tardados.
  
 ### SICT0303: Implementa acciones científicas
 #### Implementa mecanismos para consultar información de las estructras correctos.
